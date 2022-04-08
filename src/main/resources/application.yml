@@ -1,0 +1,27 @@
+micronaut:
+  application:
+    name: chat
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/db
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ''
+    schema-generate: NONE
+    dialect: MYSQL
+netty:
+  default:
+    allocator:
+      max-order: 3
+flyway:
+  datasources:
+    default:
+      enabled: true
+---
+micronaut:
+  router:
+    static-resources:
+      assets:
+        paths: 'classpath:assets'
+        mapping: '/assets/**'
+

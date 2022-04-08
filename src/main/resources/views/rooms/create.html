@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layoutFile :: layout(~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<section>
+    <h1>New Room</h1>
+
+    <form action="/rooms" accept-charset="UTF-8" method="post">
+        <div class="field">
+            <label for="room_name">Name</label>
+            <input type="text" name="name" id="room_name" />
+        </div>
+
+        <div class="actions">
+            <input type="submit" name="commit" value="Create Room" data-disable-with="Create Room" />
+        </div>
+    </form>
+
+    <a href="/rooms">Back</a>
+</section>
+</html>

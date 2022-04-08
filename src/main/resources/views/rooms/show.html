@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layoutFile :: layout(~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<section>
+    <p id="notice"></p>
+
+    <turbo-frame id="room">
+        <p th:id="@{|room_${room.id}|}">
+            <strong>Name:</strong>
+            [[${room.name}]]
+        </p>
+        <p>
+            <a th:href="@{|/rooms/${room.id}/edit|}">Edit</a> |
+            <a data-turbo-frame="_top" href="/rooms">Back</a>
+        </p>
+    </turbo-frame>
+    <div id="messages">
+
+    </div>
+
+    <turbo-frame id="new_message" th:src="@{|/rooms/${room.id}/create|}" target="_top"></turbo-frame>
+</section>
+</html>
