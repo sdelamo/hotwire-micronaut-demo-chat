@@ -1,3 +1,7 @@
+## INTRO
+
+Micronaut implementation of [Hotwire Rails demo Chat application](https://github.com/hotwired/hotwire-rails-demo-chat)
+
 ## Local development
 
 Run MySQL
