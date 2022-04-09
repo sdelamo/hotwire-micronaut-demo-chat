@@ -1,4 +1,4 @@
-package iomicronaut.hotwired.demo;
+package io.micronaut.hotwired.demo;
 
 import io.micronaut.runtime.Micronaut;
 

@@ -1,4 +1,4 @@
-package iomicronaut.hotwired.demo.controllers;
+package io.micronaut.hotwired.demo.controllers;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.http.uri.UriBuilder;

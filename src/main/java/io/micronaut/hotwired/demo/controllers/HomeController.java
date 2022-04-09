@@ -1,4 +1,4 @@
-package iomicronaut.hotwired.demo.controllers;
+package io.micronaut.hotwired.demo.controllers;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;

@@ -1,4 +1,4 @@
-package iomicronaut.hotwired.demo.controllers;
+package io.micronaut.hotwired.demo.controllers;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
@@ -12,11 +12,9 @@ import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Produces;
 import io.micronaut.views.View;
-import iomicronaut.hotwired.demo.models.Room;
-import iomicronaut.hotwired.demo.repositories.RoomRepository;
+import io.micronaut.hotwired.demo.models.Room;
+import io.micronaut.hotwired.demo.repositories.RoomRepository;
 
-import java.net.URI;
-import java.net.URL;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;

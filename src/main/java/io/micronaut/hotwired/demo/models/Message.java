@@ -1,4 +1,4 @@
-package iomicronaut.hotwired.demo.models;
+package io.micronaut.hotwired.demo.models;
 
 import io.micronaut.core.annotation.Creator;
 import io.micronaut.core.annotation.NonNull;
@@ -10,7 +10,6 @@ import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Relation;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
 @MappedEntity
