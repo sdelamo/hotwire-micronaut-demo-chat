@@ -4,19 +4,19 @@
     <p id="notice"></p>
 
     <turbo-frame id="room">
-        <p th:id="@{|room_${room.id}|}">
-            <strong>Name:</strong>
-            [[${room.name}]]
-        </p>
+        <p th:replace="rooms/_room :: room(${room})"></p>
         <p>
             <a th:href="@{|/rooms/${room.id}/edit|}">Edit</a> |
             <a data-turbo-frame="_top" href="/rooms">Back</a>
         </p>
     </turbo-frame>
     <div id="messages">
+        <div th:each="message : ${room.messages}">
+            <p th:replace="messages/_message :: message(${message})"></p>
+        </div>
 
     </div>
 
-    <turbo-frame id="new_message" th:src="@{|/rooms/${room.id}/create|}" target="_top"></turbo-frame>
+    <turbo-frame id="new_message" th:src="@{|/rooms/${room.id}/messages/create|}" target="_top"></turbo-frame>
 </section>
 </html>

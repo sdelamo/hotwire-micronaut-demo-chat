@@ -15,11 +15,15 @@ public interface UrlMappings<ID> {
 
     String CREATE = "create";
 
+    String UPDATE = "update";
+
     String SHOW = "show";
 
     String EDIT = "edit";
 
     String INDEX = "index";
+
+    String PATH_VARIABLE_ID = "{id}";
 
     @NonNull
     URI index(@NonNull String resource);

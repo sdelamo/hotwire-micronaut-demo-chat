@@ -1,10 +1,13 @@
 package iomicronaut.hotwired.demo.models;
 
+import io.micronaut.core.annotation.Nullable;
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.annotation.Relation;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @MappedEntity
 public class Room {
@@ -14,6 +17,11 @@ public class Room {
 
     @NotNull
     private String name;
+
+    @Relation(value = Relation.Kind.ONE_TO_MANY, mappedBy = "room")
+    @Nullable
+    private List<Message> messages;
+
     public Long getId() {
         return id;
     }
@@ -28,6 +36,15 @@ public class Room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Nullable
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(@Nullable List<Message> messages) {
+        this.messages = messages;
     }
 
     @Override
