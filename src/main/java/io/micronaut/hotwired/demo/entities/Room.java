@@ -1,4 +1,4 @@
-package io.micronaut.hotwired.demo.models;
+package io.micronaut.hotwired.demo.entities;
 
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.data.annotation.GeneratedValue;

@@ -1,29 +1,25 @@
 package io.micronaut.hotwired.demo.controllers;
 
 import io.micronaut.core.annotation.NonNull;
+import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
+import io.micronaut.http.MediaType;
+import io.micronaut.http.uri.UriBuilder;
+import io.micronaut.views.turbo.http.TurboMediaType;
 
-public abstract class ApplicationController<ID> {
-    private final UrlMappings<ID> urlMappings;
+import java.net.URI;
 
-    public ApplicationController(UrlMappings<ID> urlMappings) {
-        this.urlMappings = urlMappings;
-    }
-
+public abstract class ApplicationController {
     @NonNull
-    public HttpResponse<?> redirectTo(@NonNull String resource) {
-        return HttpResponse.seeOther(urlMappings.index(resource));
+    protected HttpResponse<?> redirectTo(@NonNull CharSequence uri,
+                                         @NonNull Long id) {
+        return HttpResponse.seeOther(UriBuilder.of(uri)
+                .path("" + id)
+                .build());
     }
 
-    public HttpResponse<?> redirectTo(@NonNull String resource, @NonNull Action action, ID id) {
-        switch (action) {
-            case EDIT:
-                return HttpResponse.seeOther(urlMappings.edit(resource, id));
-            case SHOW:
-                return HttpResponse.seeOther(urlMappings.show(resource, id));
-            default:
-                throw new RuntimeException("should not reach this path");
-        }
-
+    protected boolean accepts(@NonNull HttpRequest<?> request,
+                              @NonNull MediaType mediaType) {
+        return request.accept().stream().anyMatch(mt -> mt.equals(mediaType));
     }
 }

@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{layoutFile :: layout(~{::section})}" xmlns:th="http://www.thymeleaf.org">
-<section>
-<p id="notice"></p>
-
-<h1>Rooms</h1>
-
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr th:each="room : ${rooms}">
-        <td th:text="${room.name}"></td>
-        <td><a th:href="@{|/rooms/${room.id}|}">Show</a></td>
-        <td><a th:href="@{|/rooms/${room.id}/edit|}">Edit</a></td>
-        <td>
-            <form th:action="@{|/rooms/${room.id}/delete|}" method="post" onsubmit="return confirm('Are you sure?');">
-                <input type="hidden" name="id" th:value="${room.id}">
-                <input type="submit" value="Destroy"/>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-<br>
-
-<a href="/rooms/create">New Room</a>
-</section>
+<html lang="en" th:replace="~{layoutFile :: layout(~{::script},~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script></script>
+</head>
+<body>
+    <main>
+        <p id="notice"></p>
+        <h1>Rooms</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th colspan="3"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="room : ${rooms}">
+                    <td th:text="${room.name}"></td>
+                    <td><a th:href="@{|/rooms/${room.id}|}">Show</a></td>
+                    <td><a th:href="@{|/rooms/${room.id}/edit|}">Edit</a></td>
+                    <td>
+                        <form th:action="@{|/rooms/${room.id}/delete|}" method="post" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="id" th:value="${room.id}">
+                            <input type="submit" value="Destroy"/>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a href="/rooms/create">New Room</a>
+    </main>
+</body>
 </html>

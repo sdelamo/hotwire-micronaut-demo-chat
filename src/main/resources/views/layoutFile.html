@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org">
+<html th:fragment="layout (script, content)" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title th:text="${pageTitle}">Chat</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,6 +17,7 @@
                 }
             })
         </script>
+        <script th:replace="${script}"></script>
     </head>
     <body>
     <div th:replace="${content}"></div>

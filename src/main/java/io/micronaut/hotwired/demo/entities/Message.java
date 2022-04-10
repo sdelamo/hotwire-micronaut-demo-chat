@@ -1,4 +1,4 @@
-package io.micronaut.hotwired.demo.models;
+package io.micronaut.hotwired.demo.entities;
 
 import io.micronaut.core.annotation.Creator;
 import io.micronaut.core.annotation.NonNull;
@@ -11,6 +11,8 @@ import io.micronaut.data.annotation.Relation;
 
 import javax.validation.constraints.NotBlank;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 @MappedEntity
 public class Message {
@@ -80,5 +82,13 @@ public class Message {
                 "id=" + id +
                 ", content='" + content + '\'' +
                 '}';
+    }
+
+    private static final String PATTERN = "MMM:dd HH:mm:ss";
+
+    public String formattedDateCreated() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(PATTERN)
+                .withZone(ZoneId.systemDefault());
+        return formatter.format(dateCreated);
     }
 }
