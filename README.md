@@ -9,6 +9,11 @@ Run MySQL
 docker run -it --rm -p 3306:3306 -e MYSQL_DATABASE=db -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:8
 ```
 
+(or for ARM)
+```
+docker run -it --rm -p 3306:3306 -e MYSQL_DATABASE=db -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:oracle
+```
+
 ## Micronaut 3.4.1 Documentation
 
 - [User Guide](https://docs.micronaut.io/3.4.1/guide/index.html)
